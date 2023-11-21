@@ -1,6 +1,6 @@
 name: MRR_Report
 description: ''
-version: '8.0'
+version: '9.0'
 author: baibhab.patnaik@sonata-software.com
 language: python
 buildSystem: ''
