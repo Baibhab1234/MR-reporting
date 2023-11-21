@@ -61,10 +61,11 @@
     } ],
     "max_concurrent_runs" : 1,
     "schedule" : {
-      "quartz_cron_expression" : "0 56 12 * * ? *",
-      "timezone_id" : "UTC",
-      "pause_status" : "PAUSED"
-    }
+      "quartz_cron_expression" : "0 30 15 * * ? *",
+      "timezone_id" : "Asia/Calcutta",
+      "pause_status" : "UNPAUSED"
+    },
+    "access_control_list" : [ ]
   },
   "cluster_mode" : {
     "clusterMode" : "Single"

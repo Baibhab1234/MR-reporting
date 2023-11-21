@@ -76,7 +76,7 @@ jobs:
       Databricks: {}
     cloudProvider: null
     jobSize: Small
-    scheduleCron: 0 56 12 * * ? *
+    scheduleCron: 0 30 15 * * ? *
     timeout: null
     alerting:
       emails: baibhab.patnaik@sonata-software.com
@@ -89,7 +89,7 @@ jobs:
       clusterMode:
         Single: {}
       clusterId: null
-    enabled: null
+    enabled: true
     createdAt: '2023-11-21 07:24:34'
     author: baibhab.patnaik@sonata-software.com
 gemContainer:

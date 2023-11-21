@@ -4,12 +4,12 @@
     "fabricId" : "7037",
     "jobId" : "jobs/schedule_report",
     "name" : "schedule_report",
-    "schedule" : "0 56 12 * * ? *",
-    "scheduleTimeZone" : "UTC",
+    "schedule" : "0 30 15 * * ? *",
+    "scheduleTimeZone" : "Asia/Calcutta",
     "jobClusterMode" : {
       "clusterMode" : "Single"
     },
-    "enabled" : false,
+    "enabled" : true,
     "defaultClusterSize" : "Small",
     "alerting" : {
       "emails" : "baibhab.patnaik@sonata-software.com",
@@ -41,7 +41,8 @@
       "scalalibsResolutionMode" : {
         "PublicCentral" : { }
       }
-    } ]
+    } ],
+    "accessControlList" : [ ]
   },
   "processes" : {
     "aAXiCsTwyg7uqhQlcfi0a" : {

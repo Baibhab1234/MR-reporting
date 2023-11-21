@@ -7,7 +7,7 @@
       "editableConfig" : true
     },
     "id" : "1",
-    "uri" : "pipelines/workflow",
+    "uri" : "pipelines/customer_spending",
     "language" : "python",
     "fabricId" : "7037",
     "frontEndLanguage" : "sql",
