@@ -1,0 +1,74 @@
+{
+  "fabric_id" : "7037",
+  "components" : [ {
+    "PipelineComponent" : {
+      "path" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/customer_spending-1.0-py3-none-any.whl",
+      "nodeName" : "customer_spending",
+      "id" : "aAXiCsTwyg7uqhQlcfi0a",
+      "language" : "python",
+      "pipelineId" : "pipelines/customer_spending"
+    }
+  } ],
+  "request" : {
+    "format" : "MULTI_TASK",
+    "name" : "schedule_report",
+    "job_clusters" : [ {
+      "job_cluster_key" : "schedule_report_default_Small",
+      "new_cluster" : {
+        "spark_version" : "11.3.x-scala2.12",
+        "node_type_id" : "i3.xlarge",
+        "driver_node_type_id" : "i3.xlarge",
+        "num_workers" : 1,
+        "spark_conf" : {
+          "spark.prophecy.metadata.fabric.id" : "7037",
+          "spark.prophecy.metadata.job.uri" : "__PROJECT_ID_PLACEHOLDER__/jobs/schedule_report",
+          "spark.prophecy.metadata.is.interactive.run" : "false",
+          "spark.prophecy.project.id" : "__PROJECT_ID_PLACEHOLDER__",
+          "spark.prophecy.metadata.user.id" : 4359,
+          "spark.prophecy.execution.service.url" : "wss://execution.dp.app.prophecy.io/eventws",
+          "spark.prophecy.packages.path" : "{\"pipelines/customer_spending\":\"dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/customer_spending-1.0-py3-none-any.whl\"}",
+          "spark.prophecy.metadata.job.branch" : "__PROJECT_RELEASE_VERSION_PLACEHOLDER__",
+          "spark.prophecy.metadata.url" : "__PROPHECY_URL_PLACEHOLDER__",
+          "spark.prophecy.execution.metrics.disabled" : false
+        }
+      }
+    } ],
+    "email_notifications" : {
+      "on_success" : [ "baibhab.patnaik@sonata-software.com" ],
+      "on_failure" : [ "baibhab.patnaik@sonata-software.com" ]
+    },
+    "tasks" : [ {
+      "task_key" : "customer_spending",
+      "job_cluster_key" : "schedule_report_default_Small",
+      "python_wheel_task" : {
+        "package_name" : "customer_spending",
+        "entry_point" : "main",
+        "parameters" : [ "-i", "default", "-O", "{}" ]
+      },
+      "libraries" : [ {
+        "maven" : {
+          "coordinates" : "io.prophecy:prophecy-libs_2.12:3.3.0-7.1.35"
+        }
+      }, {
+        "pypi" : {
+          "package" : "prophecy-libs==1.7.0"
+        }
+      }, {
+        "whl" : "dbfs:/FileStore/prophecy/artifacts/saas/app/__PROJECT_ID_PLACEHOLDER__/__PROJECT_RELEASE_VERSION_PLACEHOLDER__/pipeline/customer_spending-1.0-py3-none-any.whl"
+      } ],
+      "email_notifications" : { },
+      "max_retries" : 0
+    } ],
+    "max_concurrent_runs" : 1,
+    "schedule" : {
+      "quartz_cron_expression" : "0 56 12 * * ? *",
+      "timezone_id" : "UTC",
+      "pause_status" : "PAUSED"
+    }
+  },
+  "cluster_mode" : {
+    "clusterMode" : "Single"
+  },
+  "secret_scope" : "prophecy_jobs_6236",
+  "sorted_processes" : [ "aAXiCsTwyg7uqhQlcfi0a" ]
+}
